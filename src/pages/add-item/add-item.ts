@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, AlertController } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { Events} from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -17,7 +17,7 @@ export class AddItemPage {
   category;
   imageurl;
 
-  constructor(private camera: Camera, public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
+  constructor(private camera: Camera, public alertCtrl: AlertController, public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
 
   }
   //var Order = Parse.Object.extend("")
@@ -54,9 +54,15 @@ export class AddItemPage {
        // imageData is either a base64 encoded string or a file URI
        // If it's base64:
        let base64Image = 'data:image/jpeg;base64,' + imageData;
+       this.imageurl = base64Image;
+
     }, (err) => {
-       // Handle error
-       console.log(err);
+       // The picture failed.
+        let alertt = this.alertCtrl.create({
+          title: 'Picture Failed!',
+          buttons: ['Dismiss']
+        });
+        alertt.present();
     });
   }
 
