@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Menu</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    
+    <ion-item-sliding *ngFor="let item of items" style="background-color: #bf42f4, border-radius: 8px;">
+
+      <button class="itemButtons" ion-item (click)="itemDetail(item)">
+        {{item.name}}<br>
+        {{item.category}}<br>
+        ${{item.price}}
+        <ion-thumbnail item-left>
+          <ion-img src={{item.imageurl}}></ion-img>
+        </ion-thumbnail>
+      </button>
+      
+      <ion-item-options>
+        <button class="slideButtons" ion-button color="edit" (click)="editItem(item)">
+          <ion-icon name="clipboard"></ion-icon>
+        </button>
+        <button class="slideButtons" ion-button color="danger" (click)="removeItem(item)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

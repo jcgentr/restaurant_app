@@ -1,0 +1,40 @@
+<!-- Edit item -->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Edit Item</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Item Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Price (USD $) </ion-label>
+      <ion-input type="number" [(ngModel)]="price"></ion-input>
+    </ion-item>
+    <br/>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="category">
+        <ion-option value="Dish">Dish</ion-option>
+        <ion-option value="Dessert">Dessert</ion-option>
+        <ion-option value="Drink">Drink</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Photo (URL) </ion-label>
+      <ion-input type="text" [(ngModel)]="imageurl"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button block ion-button color="primary" (click)="saveItem()">Save</button>
