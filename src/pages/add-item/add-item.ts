@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { Events} from 'ionic-angular';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+
 
 
 @Component({
@@ -42,15 +42,9 @@ export class AddItemPage {
     this.view.dismiss();
   }
 
-  // options: StreamingVideoOptions = {
-  //   successCallback: () => {console.log("Video Played")},
-  //   errorCallback: (e) => {console.log("Error Streaming")},
-  //   orientation: "landscape"
-  // }
 
   takePicture(){
-    // this.streamingMedia.playVideo("https://www.youtube.com/watch?v=rQKis2Cfpeo",this.options);
-    
+
   }
 
 }

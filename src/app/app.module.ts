@@ -17,7 +17,7 @@ import { EditItemPage} from '../pages/edit-item/edit-item';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
-import { StreamingMedia } from '@ionic-native/streaming-media';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +51,6 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     EditItemPage
   ],
   providers: [
-    StreamingMedia,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
