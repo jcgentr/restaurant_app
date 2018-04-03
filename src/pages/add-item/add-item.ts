@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { Events} from 'ionic-angular';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class AddItemPage {
   category;
   imageurl;
 
-  constructor(public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
+  constructor(private camera: Camera, public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
 
   }
   //var Order = Parse.Object.extend("")
@@ -42,9 +42,22 @@ export class AddItemPage {
     this.view.dismiss();
   }
 
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
 
   takePicture(){
-
+    this.camera.getPicture(this.options).then((imageData) => {
+       // imageData is either a base64 encoded string or a file URI
+       // If it's base64:
+       let base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+       // Handle error
+       console.log(err);
+    });
   }
 
 }

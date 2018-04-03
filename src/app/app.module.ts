@@ -17,7 +17,7 @@ import { EditItemPage} from '../pages/edit-item/edit-item';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
-
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { Data } from '../providers/data';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data
   ]})
