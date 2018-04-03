@@ -17,7 +17,7 @@ export class AddItemPage {
   category;
   imageurl;
 
-  constructor(private streamingMedia: StreamingMedia, public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
+  constructor(public events: Events, public navCtrl: NavController, public view: ViewController, public dataService: Data) {
 
   }
   //var Order = Parse.Object.extend("")
