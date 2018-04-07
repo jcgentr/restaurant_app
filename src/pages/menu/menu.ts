@@ -6,7 +6,7 @@ import { ItemDetailPage } from '../item-detail/item-detail';
 import { EditItemPage } from '../edit-item/edit-item';
 import { Events} from 'ionic-angular';
 import { Parse } from 'parse';
-
+import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class MenuPage {
   items: any = [];
 	
 
-  constructor(public events: Events, public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  constructor(private streamingMedia: StreamingMedia, public events: Events, public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
  	
     this.items = this.dataService.getDataMenu();
     // after adding a new item
@@ -98,5 +98,15 @@ export class MenuPage {
 
   }
 
+  // startVideo() {
+  //   let options: StreamingVideoOptions = {
+  //     successCallback: () => { console.log('Finished Video') },
+  //     errorCallback: (e) => { console.log('Error: ', e) },
+  //     orientation: 'portrait'
+  //   };
+ 
+  //   // http://www.sample-videos.com/
+  //   this.streamingMedia.playVideo('http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_30mb.mp4', options);
+  // }
 
 }

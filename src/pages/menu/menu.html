@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Menu</ion-title>
+    <ion-title>Jared Gentry's Restaurant App</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addItem()">
         <ion-icon name="add-circle"></ion-icon>
@@ -10,6 +10,15 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
+    <!-- stream youtube video by embeding it -->
+     <!-- <div class="card">
+            <ion-item>
+                <div class="video-container"> -->
+                    <!-- <iframe src="" frameborder="0" width="560" height="315"></iframe> -->
+                  <!--   <iframe width="560" height="315" src="https://www.youtube.com/embed/7LaxNhKDCcE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </ion-item>
+        </div> -->
     
     <ion-item-sliding *ngFor="let item of items" style="background-color: #bf42f4, border-radius: 8px;">
 
@@ -33,4 +42,5 @@
 
     </ion-item-sliding>
   </ion-list>
+  <!-- <button ion-button full (click)="startVideo()">Start Video</button> -->
 </ion-content>

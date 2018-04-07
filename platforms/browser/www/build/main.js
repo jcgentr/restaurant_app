@@ -637,7 +637,7 @@ var MenuPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_data__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_streaming_media__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(305);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -653,16 +653,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AddItemPage = (function () {
-    function AddItemPage(streamingMedia, events, navCtrl, view, dataService) {
-        this.streamingMedia = streamingMedia;
+    function AddItemPage(camera, alertCtrl, events, navCtrl, view, dataService) {
+        this.camera = camera;
+        this.alertCtrl = alertCtrl;
         this.events = events;
         this.navCtrl = navCtrl;
         this.view = view;
         this.dataService = dataService;
         this.options = {
-            successCallback: function () { console.log("Video Played"); },
-            errorCallback: function (e) { console.log("Error Streaming"); },
-            orientation: "landscape"
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
         };
     }
     //var Order = Parse.Object.extend("")
@@ -684,13 +686,26 @@ var AddItemPage = (function () {
         this.view.dismiss();
     };
     AddItemPage.prototype.takePicture = function () {
-        this.streamingMedia.playVideo("https://www.youtube.com/watch?v=QD8N8N7wzmM", this.options);
+        var _this = this;
+        this.camera.getPicture(this.options).then(function (imageData) {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64:
+            var base64Image = 'data:image/jpeg;base64,' + imageData;
+            _this.imageurl = base64Image;
+        }, function (err) {
+            // The picture failed.
+            var alertt = _this.alertCtrl.create({
+                title: 'Picture Failed!',
+                buttons: ['Dismiss']
+            });
+            alertt.present();
+        });
     };
     AddItemPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-add-item',template:/*ion-inline-start:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/'<!--\n  Generated template for the AddItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Add Menu Item</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="close()">\n        <ion-icon name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Item Name</ion-label>\n      <ion-input type="text" [(ngModel)]="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Price (USD $) </ion-label>\n      <ion-input type="number" [(ngModel)]="price"></ion-input>\n    </ion-item>\n    <br/>\n    <ion-item>\n      <ion-label>Category</ion-label>\n      <ion-select interface="popover" [(ngModel)]="category">\n        <ion-option value="Dish">Dish</ion-option>\n        <ion-option value="Dessert">Dessert</ion-option>\n        <ion-option value="Drink">Drink</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <!-- <ion-label floating>Photo (URL) </ion-label>\n      <ion-input type="text" [(ngModel)]="imageurl"></ion-input> -->\n    <ion-buttons>\n      <button ion-button icon-only (click)="takePicture()">\n        <ion-icon name="camera"></ion-icon>\n      </button> Take Picture\n    </ion-buttons>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Description</ion-label>\n      <ion-input type="text" [(ngModel)]="description"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button block ion-button color="primary" (click)="saveItem()">Save</button>\n</ion-content>\n'/*ion-inline-end:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_streaming_media__["a" /* StreamingMedia */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_data__["a" /* Data */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_data__["a" /* Data */]])
     ], AddItemPage);
     return AddItemPage;
 }());
@@ -735,7 +750,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_data__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_streaming_media__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_camera__ = __webpack_require__(305);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -802,9 +817,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__pages_edit_item_edit_item__["a" /* EditItemPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_17__ionic_native_streaming_media__["a" /* StreamingMedia */],
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_17__ionic_native_camera__["a" /* Camera */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_16__providers_data__["a" /* Data */]
             ]
