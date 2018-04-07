@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "com.hutchind.cordova.plugins.streamingmedia": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "io.ionic.starter"
     },

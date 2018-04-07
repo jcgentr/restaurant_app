@@ -18,7 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
 import { Camera } from '@ionic-native/camera';
-import { StreamingMedia } from '@ionic-native/streaming-media';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +56,6 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     SplashScreen,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Data,
-    StreamingMedia
+    Data
   ]})
 export class AppModule {}

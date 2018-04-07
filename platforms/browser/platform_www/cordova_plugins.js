@@ -1,14 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.hutchind.cordova.plugins.streamingmedia/www/StreamingMedia.js",
-        "id": "com.hutchind.cordova.plugins.streamingmedia.StreamingMedia",
-        "pluginId": "com.hutchind.cordova.plugins.streamingmedia",
-        "clobbers": [
-            "streamingMedia"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
@@ -79,7 +71,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.hutchind.cordova.plugins.streamingmedia": "0.1.4",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-device": "2.0.1",
     "cordova-plugin-splashscreen": "5.0.2",

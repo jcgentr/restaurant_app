@@ -6,7 +6,6 @@ import { ItemDetailPage } from '../item-detail/item-detail';
 import { EditItemPage } from '../edit-item/edit-item';
 import { Events} from 'ionic-angular';
 import { Parse } from 'parse';
-import { StreamingMedia, StreamingVideoOptions, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class MenuPage {
   items: any = [];
 	
 
-  constructor(private streamingMedia: StreamingMedia, public events: Events, public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  constructor(public events: Events, public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
  	
     this.items = this.dataService.getDataMenu();
     // after adding a new item
