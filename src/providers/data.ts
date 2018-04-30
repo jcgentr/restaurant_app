@@ -34,7 +34,7 @@ items = [];
     // subscribe to my query
     var client = new Parse.LiveQueryClient({
       applicationId: 'lMgSSaoqEVXJYUqoFt8Y7LUCyJJB7p3ZRFvZgYYw',
-      serverURL: 'wss://' + 'restaurantApp.back4app.io', // Example: 'wss://livequerytutorial.back4app.io'
+      serverURL: 'wss://' + 'livedatingapp.back4app.io', // Example: 'wss://livequerytutorial.back4app.io'
       javascriptKey: 'aTIFkyv9Qn1elLLby83OexmrcIdPdrOB5pjUCKZY',
       masterKey: 'reR2yZXaiRqdc51a8H3shVeEG9xnxIWw1W2SUw84'
     });

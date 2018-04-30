@@ -237,15 +237,15 @@ webpackEmptyAsyncContext.id = 188;
 
 var map = {
 	"../pages/edit-item/edit-item.module": [
-		464,
+		463,
 		2
 	],
 	"../pages/item-detail/item-detail.module": [
-		465,
+		464,
 		1
 	],
 	"../pages/order-detail/order-detail.module": [
-		466,
+		465,
 		0
 	]
 };
@@ -532,7 +532,6 @@ var MyOrderPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_item_edit_item__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_parse__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_parse___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_parse__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_streaming_media__ = __webpack_require__(306);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -550,11 +549,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var MenuPage = (function () {
-    function MenuPage(streamingMedia, events, navParams, navCtrl, modalCtrl, dataService) {
+    function MenuPage(events, navParams, navCtrl, modalCtrl, dataService) {
         var _this = this;
-        this.streamingMedia = streamingMedia;
         this.events = events;
         this.navParams = navParams;
         this.navCtrl = navCtrl;
@@ -619,20 +616,11 @@ var MenuPage = (function () {
             }
         });
     };
-    MenuPage.prototype.startVideo = function () {
-        var options = {
-            successCallback: function () { console.log('Finished Video'); },
-            errorCallback: function (e) { console.log('Error: ', e); },
-            orientation: 'portrait'
-        };
-        // http://www.sample-videos.com/
-        this.streamingMedia.playVideo('http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_30mb.mp4', options);
-    };
     MenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-menu',template:/*ion-inline-start:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/menu/menu.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Menu</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n\n     <div class="card">\n            <ion-item>\n                <div class="video-container">\n                    <!-- <iframe src="" frameborder="0" width="560" height="315"></iframe> -->\n                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7LaxNhKDCcE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>\n                </div>\n            </ion-item>\n        </div>\n    \n    <ion-item-sliding *ngFor="let item of items" style="background-color: #bf42f4, border-radius: 8px;">\n\n      <button class="itemButtons" ion-item (click)="itemDetail(item)">\n        {{item.name}}<br>\n        {{item.category}}<br>\n        ${{item.price}}\n        <ion-thumbnail item-left>\n          <ion-img src={{item.imageurl}}></ion-img>\n        </ion-thumbnail>\n      </button>\n      \n      <ion-item-options>\n        <button class="slideButtons" ion-button color="edit" (click)="editItem(item)">\n          <ion-icon name="clipboard"></ion-icon>\n        </button>\n        <button class="slideButtons" ion-button color="danger" (click)="removeItem(item)">\n          <ion-icon name="trash"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-list>\n  <button ion-button full (click)="startVideo()">Start Video</button>\n</ion-content>\n'/*ion-inline-end:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/menu/menu.html"*/
+            selector: 'page-menu',template:/*ion-inline-start:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/menu/menu.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Jared Gentry\'s Restaurant App</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n    <!-- stream youtube video by embeding it -->\n     <!-- <div class="card">\n            <ion-item>\n                <div class="video-container"> -->\n                    <!-- <iframe src="" frameborder="0" width="560" height="315"></iframe> -->\n                  <!--   <iframe width="560" height="315" src="https://www.youtube.com/embed/7LaxNhKDCcE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>\n                </div>\n            </ion-item>\n        </div> -->\n    \n    <ion-item-sliding *ngFor="let item of items" style="background-color: #bf42f4, border-radius: 8px;">\n\n      <button class="itemButtons" ion-item (click)="itemDetail(item)">\n        {{item.name}}<br>\n        {{item.category}}<br>\n        ${{item.price}}\n        <ion-thumbnail item-left>\n          <ion-img src={{item.imageurl}}></ion-img>\n        </ion-thumbnail>\n      </button>\n      \n      <ion-item-options>\n        <button class="slideButtons" ion-button color="edit" (click)="editItem(item)">\n          <ion-icon name="clipboard"></ion-icon>\n        </button>\n        <button class="slideButtons" ion-button color="danger" (click)="removeItem(item)">\n          <ion-icon name="trash"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-list>\n  <!-- <button ion-button full (click)="startVideo()">Start Video</button> -->\n</ion-content>\n'/*ion-inline-end:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/menu/menu.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__ionic_native_streaming_media__["a" /* StreamingMedia */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_data__["a" /* Data */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_data__["a" /* Data */]])
     ], MenuPage);
     return MenuPage;
 }());
@@ -676,7 +664,8 @@ var AddItemPage = (function () {
             quality: 100,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
+            mediaType: this.camera.MediaType.PICTURE,
+            correctOrientation: true
         };
     }
     //var Order = Parse.Object.extend("")
@@ -715,7 +704,7 @@ var AddItemPage = (function () {
     };
     AddItemPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-item',template:/*ion-inline-start:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/'<!--\n  Generated template for the AddItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Add Menu Item</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="close()">\n        <ion-icon name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Item Name</ion-label>\n      <ion-input type="text" [(ngModel)]="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Price (USD $) </ion-label>\n      <ion-input type="number" [(ngModel)]="price"></ion-input>\n    </ion-item>\n    <br/>\n    <ion-item>\n      <ion-label>Category</ion-label>\n      <ion-select interface="popover" [(ngModel)]="category">\n        <ion-option value="Dish">Dish</ion-option>\n        <ion-option value="Dessert">Dessert</ion-option>\n        <ion-option value="Drink">Drink</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <!-- <ion-label floating>Photo (URL) </ion-label>\n      <ion-input type="text" [(ngModel)]="imageurl"></ion-input> -->\n    <ion-buttons>\n      <button ion-button icon-only (click)="takePicture()">\n        <ion-icon name="camera"></ion-icon>\n      </button> Take Picture\n    </ion-buttons>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Description</ion-label>\n      <ion-input type="text" [(ngModel)]="description"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button block ion-button color="primary" (click)="saveItem()">Save</button>\n</ion-content>\n'/*ion-inline-end:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/
+            selector: 'page-add-item',template:/*ion-inline-start:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/'<!--\n  Generated template for the AddItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Add Menu Item</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="close()">\n        <ion-icon name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Item Name</ion-label>\n      <ion-input type="text" [(ngModel)]="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Price (USD $) </ion-label>\n      <ion-input type="number" [(ngModel)]="price"></ion-input>\n    </ion-item>\n    <br/>\n    <ion-item>\n      <ion-label>Category</ion-label>\n      <ion-select interface="popover" [(ngModel)]="category">\n        <ion-option value="Dish">Dish</ion-option>\n        <ion-option value="Dessert">Dessert</ion-option>\n        <ion-option value="Drink">Drink</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <!-- <ion-label floating>Photo (URL) </ion-label>\n      <ion-input type="text" [(ngModel)]="imageurl"></ion-input> -->\n    <ion-buttons>\n      <button ion-button icon-only (click)="takePicture()">\n        <ion-icon name="camera"></ion-icon>\n      </button> Take Picture <br> {{imageurl}}\n    </ion-buttons>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Description</ion-label>\n      <ion-input type="text" [(ngModel)]="description"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button block ion-button color="primary" (click)="saveItem()">Save</button>\n</ion-content>\n'/*ion-inline-end:"/home/jcgentr/Desktop/Spring18_Courses/MobileAppDev/Ionic/hw3app/src/pages/add-item/add-item.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_data__["a" /* Data */]])
     ], AddItemPage);
@@ -726,13 +715,13 @@ var AddItemPage = (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(330);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -740,7 +729,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 331:
+/***/ 330:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -748,7 +737,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(454);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_my_order_my_order__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_order_detail_order_detail__ = __webpack_require__(178);
@@ -763,14 +752,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_data__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_camera__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_streaming_media__ = __webpack_require__(306);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -835,8 +822,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_camera__["a" /* Camera */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_16__providers_data__["a" /* Data */],
-                __WEBPACK_IMPORTED_MODULE_18__ionic_native_streaming_media__["a" /* StreamingMedia */]
+                __WEBPACK_IMPORTED_MODULE_16__providers_data__["a" /* Data */]
             ]
         })
     ], AppModule);
@@ -847,7 +833,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 455:
+/***/ 454:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1073,5 +1059,5 @@ var Data = (function () {
 
 /***/ })
 
-},[307]);
+},[306]);
 //# sourceMappingURL=main.js.map

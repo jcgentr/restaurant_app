@@ -18,7 +18,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
 import { Camera } from '@ionic-native/camera';
-
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { Camera } from '@ionic-native/camera';
     EditItemPage
   ],
   imports: [
+    HttpModule,
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
